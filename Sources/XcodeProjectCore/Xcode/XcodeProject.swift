@@ -64,6 +64,9 @@ extension XcodeProject {
     public var targets: [PBX.Target] {
         return context.targets
     }
+    public var srcRoot: String {
+        return return context.xcodeprojectUrl.pathComponents.dropLast(2).joined(separator: "/").replacingOccurrences(of: "//", with: "/")
+    }
 }
 
 // MARK: - Remove

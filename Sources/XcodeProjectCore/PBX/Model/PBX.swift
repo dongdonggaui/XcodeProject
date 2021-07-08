@@ -100,17 +100,20 @@ extension /* prefix */ PBX {
     
     open class FileReference: Reference {
         // convenience accessor
-        open var fullPath: PathComponent {
+        open var fullPath: PathComponent? {
             return self.generateFullPath()
         }
         
-        fileprivate func generateFullPath() -> PathComponent {
+        fileprivate func generateFullPath() -> PathComponent? {
             guard let path = context.fullFilePaths[self.id] else {
-                fatalError(assertionMessage(description:
-                    "unexpected id: \(id)",
-                    "and fullFilePaths: \(context.fullFilePaths)"
-                    )
-                )
+                // fatalError(assertionMessage(description:
+                //     "unexpected id: \(id)",
+                //     "and fullFilePaths: \(context.fullFilePaths)"
+                //     )
+                // )
+                print("unexpected id: \(id), file name: \(self.path)")
+                
+                return nil
             }
             return path
         }
