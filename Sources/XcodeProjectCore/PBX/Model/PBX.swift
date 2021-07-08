@@ -111,7 +111,7 @@ extension /* prefix */ PBX {
                 //     "and fullFilePaths: \(context.fullFilePaths)"
                 //     )
                 // )
-                print("unexpected id: \(id), file name: \(self.path)")
+                print("unexpected id: \(id), file name: \(self.path ?? "")")
                 
                 return nil
             }

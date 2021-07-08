@@ -11,4 +11,15 @@ import Foundation
 public enum PathComponent {
     case simple(String)
     case environmentPath(SourceTreeType.Environment, String)
+    
+    var string: String {
+        get {
+            switch self {
+            case .simple(let path):
+                return path
+            case .environmentPath( _, let path):
+                return path
+            }
+        }
+    }
 }
