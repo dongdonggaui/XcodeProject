@@ -12,7 +12,7 @@ public enum PathComponent {
     case simple(String)
     case environmentPath(SourceTreeType.Environment, String)
     
-    var string: String {
+    public var string: String {
         get {
             switch self {
             case .simple(let path):
